@@ -1,0 +1,191 @@
+@import "./root.css";
+
+.MainBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.LogoName{
+    line-height: 100%;
+    font-size: 16rem;
+    font-weight: 800;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientTransition 5s infinite ease;
+}
+#by{
+    line-height: 100%;
+    font-size: 6rem;
+    font-weight: 600;
+    padding-left: 5.27%;
+    padding-bottom: 5%;
+    padding-right: 1%;
+    display: inline-block;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientTransition 5s infinite ease;
+}
+#typed {
+    line-height: 100%;
+    font-size: 6rem;
+    font-weight: 600;
+    /* padding-left: 5%; */
+    padding-bottom: 5%;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientTransition 5s infinite ease;
+    display: inline-block;
+}
+
+.typed-cursor {
+    font-size: var(--typed-font-size); /* Use variable for font size */
+    line-height: var(--typed-line-height); /* Use variable for line height */
+    text-align: var(--typed-text-align); /* Use variable for text alignment */
+    color: var(--font); /* Use variable for text color */
+    display: inline-block; /* Display cursor as inline-block */
+    width: 1ch; /* Width of the cursor */
+    height: 1em; /* Height of the cursor */
+    background-color: var(--font); /* Cursor color */
+    animation: blink 0.7s infinite; /* Cursor blinking animation */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes gradientTransition {
+    0% {
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 50% 100%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#IntroToSite{
+    font-size: 2rem;
+    padding-top: 5vh;
+}
+
+#introimg{
+    margin-top: 2rem;
+    width: 100%;
+    margin-bottom: -6rem;
+    /* margin-left:3.5% ; */
+}
+
+#im{
+    margin-top: 4rem;
+    margin-left:15%;
+    width: 70%;
+    margin-bottom: 4rem;
+}
+
+.UsageOfSite{
+    font-size: 3rem;
+    padding-top: 20vh;
+}
+
+#UsageOfSite{
+    font-size: 2rem;
+    padding-top: 5vh;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.Introduction .LogoName,
+.Introduction #by,
+.Introduction #IntroToSite,
+.Introduction img {
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Add animation for scrolling */
+@keyframes scrollIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.Usage h3,
+.Usage p,
+.Usage img {
+    opacity: 0; /* Hide elements initially */
+}
+
+/* Add animation class to elements */
+.scroll-animation {
+    animation: scrollIn 0.8s ease forwards; /* Apply animation */
+}
+
+@media only screen and (max-width: 1024px){
+    .MainBody{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    #IntroToSite{
+        font-size: 1rem;
+    }
+    #UsageOfSite{
+        font-size: 0.75rem;
+    }
+    .LogoName{
+        font-size: 7rem;
+    }
+    #by{
+        font-size: 3rem;
+    }
+    #typed{
+        font-size: 3rem;
+    }
+    #im{
+        margin-left:15%;
+    }
+    
+}

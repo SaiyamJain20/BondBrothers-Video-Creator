@@ -1,0 +1,198 @@
+@import url(./root.css);
+
+* {
+  color: var(--font);
+}
+
+body{
+  background-color: var(--bg);
+} 
+
+h1{
+  padding-top: 10vh;
+  padding-bottom: 4vh;
+}
+
+#drop-area {
+  border: dashed 0.25rem rgba(255, 255, 255, 0.5);
+  border-radius: 10vh;
+  padding: 2rem;
+  width: 70vw;
+  height: 40vh;
+  transition: border-color 0.3s ease-in-out forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+#browseButton{
+  background-color: var(--accent);
+  transition: 0.5s;
+  padding: 1vh 1vw;
+  border-radius: 5vh;
+  cursor: pointer;
+}
+
+#browseButton:hover{
+  background-color: var(--accent-hover);
+}
+
+#drop-area.highlight {
+  background-color:  #d88bfc47;
+}
+
+.imageInput{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+#containerHeader{
+  align-self: flex-start; 
+  margin-top: 5vh; 
+  display:none;
+}
+
+#imageContainer {
+  background-color: rgba(65, 105, 225, 0.4);
+  justify-content: center;
+  align-items: center;
+  border-radius: 10vh;
+  border: solid 0.25rem rgba(255, 255, 255, 0.5);
+  padding: 2rem;
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0rem;
+  width: 70vw;
+  max-height: 70vh;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+#imageContainer:has(.image-item){
+  display: grid;
+}
+
+#imageContainer::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
+#imageContainer .image-item{
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  padding: 1rem;
+  justify-self: center;
+  align-self: center;
+  width: 80%;
+  height: auto; 
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.69rem;
+}
+
+.image-item .close-button{
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 1), 0 0 0.5rem rgba(0, 0, 0, 1), 0 0 0.5rem rgba(0, 0, 0, 1);
+}
+
+.image-item img{
+  width: 100%;
+}
+
+.error {
+  animation: shake 0.5s;
+  border-color: red !important;
+  background-color: rgba(255, 0, 0, 0.082);
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+button{
+  font-size: 1.5rem;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 5vh;
+  width: 33%;
+  background: var(--accent);
+  cursor: pointer;
+  transition: 0.5s;
+  margin: 2rem 0 15vh;
+}
+
+button:hover{
+  background: var(--accent-hover);
+}
+
+#musicUpload{
+  width: 70vw;
+}
+
+input[type="file"] {
+  width: 100%; 
+  padding: 1rem;
+  border-radius: 2vh;
+  border: 1px solid var(--accent2);
+  background-color: var(--alter-bg);
+  color: var(--font);
+  margin-bottom: 15px;
+  cursor: pointer; 
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background-color: var(--accent);
+  color: var(--font);
+  border: none;
+  padding: 1rem;
+  border-radius: 2vh;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: var(--accent-hover);
+}
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 101vh;
+  background: rgba(0, 0, 0, 0.692);
+  display: none;
+  transition: 0.5s;
+  z-index: 100;
+}
+
+.loader.show {
+  display: flex !important;
+}
+
+svg {
+  filter: drop-shadow(0 0 5px var(--accent));
+}
+
+svg path,
+svg rect {
+  fill: var(--accent2);
+}

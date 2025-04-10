@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block stylesheets %}
+<link rel="stylesheet" href="../static/Styles/adminStyle.css">
+{% endblock %}
+{% block title %}Admin Controls{% endblock %}
+
+
+{% block content %}
+<header>
+    <nav id="Navbar">
+        <a href="./" class="NavLink Logo" id="HomePage"><img src="../static/Images/Logo.png" alt="Logo"
+                class="Logo"></a>
+        <div id="LinkContainer">
+            <a href="/profile/{{ username }}" class="NavLink" id="ProfileTab">Profile</a>
+            <a href="./upload" class="NavLink">Upload</a>
+            <a href="./workspace" class="NavLink">Create</a>
+        </div>
+    </nav>
+</header>
+
+<div class="MainBody">
+    <div class="HeadingContainer"><div class="Heading">Admin Controls</div></div>
+
+    <div class="Controls">
+        <div class="smallFeatures">
+            <div class="Features">
+                <div class="createdAccounts">Accounts Created</div>
+                <div id="createdAccounts">{{ NumberOfAccounts }}</div>
+            </div>
+        </div>
+
+        <div class="Features">
+            <div class="viewAccounts"></div>
+            <div id="viewAccountsList" class="accountList">
+                {% for i in range(user|length) %}
+                {% set user_item = user[i] %}
+                {% set pic_item = profilePic[i] %}
+                <div class="accountCell">
+                    <div class="leftDetails">
+                        <div class="Id">UserId : {{ user_item.id }}</div>
+                        <div class="name">Name : {{ user_item.name }}</div>
+                        <div class="username">Username: {{ user_item.username }}</div>
+                        <div class="email">Email: {{ user_item.email }}</div>
+                        <div class="Admin">Admin: {{ "Yes" if user_item.isAdmin == "True" else "No" }}</div>
+                    </div>
+                    <div class="profilePicture">
+                        <a href="data:image/jpeg;base64,{{ pic_item }}" target="_blank"><img src="data:image/jpeg;base64,{{ pic_item }}" alt="Profile Pic" id="profilePic"></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

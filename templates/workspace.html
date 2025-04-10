@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}Workspace{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../static/Styles/workspace.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock %}
+{% block scripts %}
+<script src='../static/Scripts/workspace.js' defer></script>
+{% endblock %}
+
+{% block content %}
+<header>
+    <nav id="Navbar">
+        <a href="./" class="NavLink Logo" id="HomePage"><img src="../static/Images/Logo.png" alt="Logo"
+                class="Logo"></a>
+        <div id="LinkContainer">
+            <a href="/profile/{{ username }}" class="NavLink" id="ProfileTab">Profile</a>
+            <a href="./upload" class="NavLink">Upload</a>
+            {% if isAdmin == "True"%}
+            <div id="AdminTab">
+                <a href="./adminPage" class="NavLink">Admin hub</a>
+            </div>
+            {% endif %}
+        </div>
+        </div>
+    </nav>
+</header>
+
+<div class="MainBody">
+    <div class="HeadingContainer"><div class="Heading">The Workspace</div></div>
+    
+    <h1 style="width:100%">Previously uploaded images:</h1>
+    <div id="controls">
+        <div id="sort">
+            <label for="sortBy">SortBy</label>
+            <select id="sortBy">
+                <option value="uploaded_at">Date</option>
+                <option value="file_name">Name</option>
+                <option value="file_size">FileSize</option>
+            </select>
+        </div>
+
+        <div id="search">
+            <label for="searchInput">Search By</label>
+            <input type="text" id="searchInput">
+        </div>
+    </div>
+
+
+    <div id="imageContainer"></div>
+
+    
+    <h1 style="width:100%">Add background music:</h1>
+    
+    <div id="musicContainer"></div>
+    
+    <div class="imageClear">
+        <button id="imageClear">Clear</button>
+    </div>
+    
+    <div id="controlContainer">
+        <h1 style="width:100%">Controls :</h1>
+        <br>
+        <div id="durationSetting">
+            <label for="imageDuration">Image Duration (seconds):</label>
+            <input type="number" id="imageDuration" min="1" value="5">
+        </div>
+        <div id="transitionEffect">
+            <label for="transitionType">Transition Effect:</label>
+            <select id="transitionType">
+                <option value="No">No Transition</option>
+                <option value="fadeIn">Fade In</option>
+                <option value="fadeOut">Fade Out</option>
+                <option value="fadeInOut">Fade In Out</option>
+                <option value="crossFadeIn">Cross Fade In</option>
+                <option value="crossFadeOut">Cross Fade Out</option>
+                <option value="crossFadeInOut">Cross Fade In Out</option>
+            </select>
+        </div>
+        <div id="outputSettings">
+            <label for="resolution">Video Resolution:</label>
+            <select id="resolution">
+                <option value="360p">360p</option>
+                <option value="720p">720p</option>
+                <option value="1080p">1080p</option>
+                <option value="4k">4k</option>
+            </select>
+            <label for="quality">Video Quality:</label>
+            <select id="quality">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </div>
+        <div id="buttonContainer">
+            <button onclick="generateVideo()">Generate Video</button>
+        </div>
+
+        <div id="videoContainer">
+            <h1 style="width:100%">Video Preview:</h1>
+            <video id="videoPlayer" controls autoplay loop>
+                <source src="../static/EmptyVideo.mp4" type="video/mp4">
+                Your Browser does not support HTML5
+            </video>
+            <div id="downloadVideoButtonContainer">
+                <button onclick="downloadVideo()">
+                    <i class="fas fa-download"></i> Download Video
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

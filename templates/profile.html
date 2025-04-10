@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="../static/Styles/profile.css" />
+{% endblock %}
+{% block scripts %}
+<script src='../static/Scripts/profilePage.js' defer></script>
+{% endblock %}
+
+{% block content %}
+<header>
+  <nav id="Navbar">
+    <a href="../" class="NavLink Logo" id="HomePage"><img src="../static/Images/Logo.png" alt="Logo" class="Logo"></a>
+
+    <div id="LinkContainer">
+      <a href="../upload" class="NavLink">Upload</a>
+      <a href="../workspace" class="NavLink">Create</a>
+      {% if isAdmin == "True"%}
+      <div id="AdminTab">
+        <a href="../adminPage" class="NavLink">Admin hub</a>
+      </div>
+      {% endif %}
+    </div>
+  </nav>
+</header>
+
+<div class="MainBody">
+  <div class="HeadingContainer"><div class="Heading">Profile</div></div>
+  <div class="Profile">
+    <div id="profileContent">
+      <ul>
+        <li>Name : <span style="color: var(--font)">{{user.name}}</span></li>
+        <li>Username : <span style="color: var(--font)">{{user.username}}</span></li>
+        <li>Email : <span style="color: var(--font)">{{user.email}}</span></li>
+        <li><a href="{{ url_for('logout') }}" style="text-decoration: none;">Logout</a></li>
+        <li><a href="{{ url_for('delUser') }}" style="text-decoration: none;">Delete Account</a></li>
+      </ul>
+    </div>
+    <div id="pp">
+      <div id="profilePhoto">
+        <a href = "data:image/jpeg;base64,{{ profileImage }}" target="_blank"><img src="data:image/jpeg;base64,{{ profileImage }}" alt="Profile Pic" id="profilePic"></a>
+      </div>
+      <div style="display: flex; justify-content: space-evenly;align-items: center;margin-top:2rem">
+        <input type="file" name="image" accept="image/*" required class="browseButton" id="profileUpload">
+        <input type="submit" value="Upload" class="uploadButton" id="uploadButton">
+      </div>
+    </div>
+  </div>
+
+  <div class="Previous">
+    <div class="uploaded">
+      <h1>Previously uploaded Images</h1><br>
+      <div id="imageContainer">
+
+      </div>
+      <button onclick=deleteAllImages()> Delete all Images </button>
+    </div>
+
+    <div class="uploaded">
+      <h1>Previously uploaded Music</h1><br>
+      <div id="musicContainer">
+
+      </div>
+      <button onclick=deleteAllAudios()> Delete all Audios </button>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,105 @@
+@import url(./root.css);
+
+.Controls {
+    padding-top: 5vh;
+}
+
+.smallFeatures {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.activeAccounts {
+    font-size: 2rem;
+}
+
+#activeAccounts {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.createdAccounts {
+    font-size: 2rem;
+}
+
+#createdAccounts {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.viewAccounts {
+    display: flex;
+    justify-content: center;
+    padding-top: 5vh;
+    font-size: 2rem;
+    border-bottom: solid 1px var(--accent);
+    padding-bottom: 1vh;
+}
+
+.accountBox {
+    padding: 1rem;
+    margin: 1rem;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+}
+
+.accountName {
+    font-size: 1.5rem;
+}
+.MainBody {
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.accountList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Updated CSS */
+.accountCell {
+    padding: 1rem;
+    margin: 1.5rem;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:35rem;
+}
+
+.leftDetails {
+    flex: 1;
+    text-align: left;
+}
+
+.profilePicture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.profilePicture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.username, .email, .Admin, .Id, .name {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+@media only screen and (max-width: 1024px){
+    .MainBody{
+        padding-left: 5%;
+    }
+}

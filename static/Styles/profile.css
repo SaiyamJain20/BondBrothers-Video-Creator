@@ -1,0 +1,279 @@
+@import "./root.css";
+
+.MainBody{
+  padding-left: 18.5%;
+  padding-right: 10%;
+}
+
+.Profile {
+  margin-left: 2.5%;
+  display: flex;
+  align-items: center;
+  font-size: 5rem;
+}
+
+#profileContent ul {
+  /* padding-top: 5rem; */
+  list-style: none;
+  line-height: 5rem;
+}
+
+#profileContent li {
+  font-size: 1.5rem;
+  color: var(--accent);
+  width: 45vw;
+}
+
+#pp {
+  padding-top: 8%;
+  min-width: 30rem;
+}
+
+#profilePic {
+  font-size: 2rem;
+  height: 23rem;
+  width: 23rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#profilePic:hover {
+  transform: scale(1.05);
+}
+
+.Previous {
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+  padding-top: 10vh;
+}
+
+#musicContainer {
+  background-color: rgba(65, 105, 225, 0.4);
+  padding: 1.5rem;
+  width: 100%;
+  min-height: 30vh;
+  max-height: 50vh;
+  background-color: #3a3b3c;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+#imageContainer {
+  background-color: rgba(65, 105, 225, 0.4);
+  justify-content: center;
+  align-items: center;
+  border-radius: 10vh;
+  border: solid 0.25rem rgba(255, 255, 255, 0.5);
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0rem;
+  min-height: 30vh;
+  max-height: 70vh;
+  width: 70vw;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+#imageContainer:has(.image-item){
+  display: grid;
+}
+
+#imageContainer::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
+#imageContainer .image-item{
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  padding: 1rem;
+  justify-self: center;
+  align-self: center;
+  width: 90%;
+  height: auto; 
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.69rem;
+}
+
+.image-item .close-button{
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 1);
+  z-index: 9;
+
+}
+
+.image-item img{
+  width: 100%;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.image-item img:hover{
+  transform: scale(1.05);
+  filter: brightness(120%);
+}
+
+#profilePicInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#profilePhoto {
+  position: relative;
+  width: 23rem;
+  height: 23rem;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  margin: 0 auto;
+}
+
+.uploadButton {
+  position: relative;
+  z-index: 2;
+  background-color: var(--accent);
+  color: var(--font);
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height:3rem;
+}
+.uploadButton:hover {
+  background-color: var(--accent-hover);
+}
+
+.uploaded{
+  margin-top: 5rem;
+}
+
+.uploaded button{
+  background-color: var(--accent);
+  color: var(--font);
+  border: none;
+  padding: 0.7rem 1.4rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 3vh;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 2rem auto;
+}
+
+#musicContainer {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+    background-color: rgba(65, 105, 225, 0.4);;
+    padding: 2rem;
+    width: 70vw;
+    min-height: 30vh;
+    max-height: 50vh;
+    gap: 1rem;
+    overflow: auto;
+    scrollbar-width: none;
+    border-radius: 10vh;
+    border: solid 0.25rem rgba(255, 255, 255, 0.5);
+}
+
+#musicContainer .audioCell {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--bg);
+  border-radius: 1vh;
+  padding: 0.5rem;
+}
+
+#musicContainer .audioName {
+  margin-left: 1rem;
+  color: white;
+  font-size: 1rem;
+}
+
+#musicContainer audio {
+  flex-grow: 1;
+  flex-basis: 80%;
+  scale: calc(2 * 1rem / 12.8px);
+}
+
+#musicContainer audio::-webkit-media-controls-timeline {
+  background-color: #1db954;
+}
+
+#musicContainer audio::-webkit-media-controls {
+  display: none !important;
+}
+
+#pp {
+  position: relative;
+}
+
+#profilePicInput {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.browseButton {
+  z-index: 2;
+  background-color: var(--accent);
+  color: var(--font);
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 2.2rem;
+}
+.browseButton:hover {
+  background-color: var(--accent-hover);
+}
+
+@media only screen and (max-width: 1024px) {
+    .MainBody{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .Profile{
+      flex-direction: column;
+      margin-left: 0;
+      gap: 5rem;
+    }
+
+    #profileContent{
+      width: 70vw;
+      order: 2;
+    }
+    #pp{
+      order: 1;
+    }
+
+    .uploaded{
+      margin-left: 5%;
+    }
+}

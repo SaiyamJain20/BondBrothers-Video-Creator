@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bond Brothers - Login Page</title>
+  <link rel="stylesheet" href="../static/Styles/loginStyleSheet.css">
+  <script src="../static/Scripts/SignUp-In.js" defer></script>
+</head>
+
+<body>
+  <section id="pulse">
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+    <span></span> <span></span> <span></span> <span></span> <span></span>
+
+    {% if signin == "True"%}
+    <div class="sign " id="signin">
+      <div class="content">
+        <h2>Sign In</h2>
+
+        <form class="form" method="POST" action="/SignIn">
+          <div class="inputBox">
+            <input type="text" name="email" required id="email"> <i>Email</i>
+          </div>
+
+          <div class="inputBox">
+            <input type="password" name="password" required id="password"> <i>Password</i>
+          </div>
+
+          <div class="links">
+            <a href="/forgetpassword" id="ForgetPassword">Forgot Password?</a>
+            <a href="/signup" id="signupButton">Sign Up</a>
+          </div>
+
+          <div class="inputBox">
+            <input type="submit" value="Sign In" id="signInButton" onclick="signIn()">
+          </div>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="prompt">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if signup == "True" %}
+    <div class="sign" id="signup">
+      <div class="content">
+        <h2>Sign Up</h2>
+
+        <form class="form" method="POST" action="/SignUp">
+          <div class="inputBox">
+            <input type="text" name='name' required> <i>Name</i>
+          </div>
+          <div class="inputBox">
+            <input type="text" name="username" required> <i>Username</i>
+          </div>
+
+          <div class="inputBox">
+            <input type="email" name="email" required> <i>Email</i>
+          </div>
+
+          <div class="inputBox">
+            <input type="password" name="password" required> <i>Password</i>
+          </div>
+
+          <div class="links">
+            <p></p>
+            <a href="/signin" id="signupButton">Sign In</a>
+          </div>
+
+          <div class="inputBox">
+            <input type="submit" value="Sign Up">
+          </div>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="prompt">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if ForgetPassword == "True" %}
+    <div class="sign" id="forgetPassword">
+      <div class="content">
+        <h2>Reset Password</h2>
+
+        <form class="form" method="POST">
+          <div class="inputBox">
+            <input type="email" required> <i>Email</i>
+          </div>
+
+          <div class="links">
+            <a href="/signup" id="signupButton">Signup</a>
+            <a href="/signin" id="signupButton">Signin</a>
+          </div>
+
+          <div class="inputBox">
+            <input type="submit" value="Send Reset Link">
+          </div>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="prompt">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+    {% endif %}
+
+  </section>
+</body>
+
+</html>

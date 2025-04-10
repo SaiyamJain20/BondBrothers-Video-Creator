@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-text-size-adjust: none;
+    color: var(--font);
+}
+
+body{
+    background-color: var(--bg);
+}
+
+:root{
+    --bg: rgb(21, 22, 35);
+    --alter-bg: rgb(38, 38, 38);
+    --font: rgb(255, 255, 255);
+    --font2: rgb(0, 13, 16);
+    --accent: #C95EFB;
+    --accent-hover: #7F3A99;
+    --alter: #4400748b;
+    --accent2: royalblue;
+    --isAdmin: false;
+    --isLogin: false;
+    --shadow: rgba(0,0,0,9);
+    font-size: 1vw;
+}
+
+h1{
+    font-size: 2rem;
+    text-align: left;
+    color: var(--accent);
+    text-align: center;
+    font-weight: 500;
+    width: 100%;
+}
+
+h2{
+    font-weight: 300;
+}
+
+.Heading {
+    text-align: center;
+    font-weight: 600;
+    font-size: 5rem;
+    display: inline-block;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientTransition 5s infinite ease;
+}
+
+nav {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    font-size: 2rem;
+    width: 10%;  
+    height: 100%;
+    background: var(--accent);
+    color: var(--font);
+    position: fixed;
+    overflow: auto;
+    padding: 1rem 0.5rem 1rem 1rem;
+    margin-bottom: 5%;
+    z-index: 9;
+}
+
+#LinkContainer{
+    min-height: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.NavLink{
+    text-decoration: none;
+}
+
+.NavLink:hover{
+    color: var(--bg);
+}
+
+.Logo{
+    margin-top: 0;
+    padding-top: 0;
+    height: 7vw;
+    width: 7vw;
+}
+
+#SignInUp {
+    display: flex;
+}
+
+#Profile {
+    display: none;
+}
+
+#HomePage{
+    text-align: center;
+}
+
+#HomePage:hover{
+    font-size: larger;
+    transition: all 0.2s;
+}
+
+.MainBody{
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 2%;
+    padding-bottom: 5%;
+}
+
+.HeadingContainer{
+    text-align: center;
+    width: 100%
+}
+
+#footer {
+    background-color: #000000;
+    color: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 15vh;
+    width: 90%;
+    float: right;
+    padding: 2rem 0;
+}
+
+#footer p {
+    text-align: center; 
+    max-width: 80%; 
+    margin-bottom: 1rem;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    :root{
+        font-size: 3vw;
+    }
+    
+    nav{
+        flex-direction: row;
+        height: 5%;
+        width: 100%;
+        align-items: center;
+        background-color: #c95efbc1;
+        font-size: 1.5rem;
+    }
+
+    nav #LinkContainer{
+        width: 90%;
+        flex-direction: row;
+        
+    }
+
+    .MainBody{
+        padding-top: 15%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 5%;
+    }
+
+    .Heading{
+        margin-top: 10%;
+        font-size: 3rem;
+    }
+
+    #footer{
+        width: 100%;
+    }
+}
