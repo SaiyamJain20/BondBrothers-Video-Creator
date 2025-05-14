@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, Response, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
-from MySQL import User, retrieve_users_from_mysql, save_data_to_mysql, retrieve_image_from_mysql, retrieve_profile_image, upload_profile_image, AdminRetrieve, AdminRetrieveProfilePic, retrieve_audio_from_mysql, save_image_to_mysql, save_audio_to_mysql, start_connection_pool, close_connection_pool, sort_mysql, search_mysql, deleteUser, deleteAllImages, deleteAllAudio
+from MySQL import retrieve_users_from_mysql, save_data_to_mysql, retrieve_image_from_mysql, retrieve_profile_image, upload_profile_image, AdminRetrieve, AdminRetrieveProfilePic, retrieve_audio_from_mysql, save_image_to_mysql, save_audio_to_mysql, sort_mysql, search_mysql, deleteUser, deleteAllImages, deleteAllAudio
 from video import createVideo
 import os
 import base64
 import jwt
 import atexit
+from con_pool import start_connection_pool, close_connection_pool
+from module import User
 
 app = Flask(__name__)
 SECRET_KEY = os.urandom(24)

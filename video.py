@@ -126,6 +126,3 @@ def createVideo(imgFolderName, audioFolderName, userId, timePerImage = 3, resolu
     for audio in audio_clips:
         audio.close()
     return
-
-if __name__ == "__main__":
-    createVideo("./static/Images", "./SelectedAudio", 1, timePerImage= 3, tranistion = "fadeIn")
